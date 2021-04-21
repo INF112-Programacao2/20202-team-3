@@ -19,4 +19,8 @@ eficiência no ecossistema hospitalar.
 
 * Como secretario quero excluir pessoas cadastradas (médicos e pacientes).
 
-DPI
+## Diagrama de Classes
+
+*   https://imgur.com/a/smKuoui 
+
+
