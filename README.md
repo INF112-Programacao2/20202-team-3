@@ -21,7 +21,6 @@ eficiência no ecossistema hospitalar.
 
 ## Diagrama de Classes
 
-![](https://imgur.com/a/smKuoui)
-
+![Link](https://imgur.com/a/smKuoui)
 
 
