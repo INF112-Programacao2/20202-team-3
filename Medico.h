@@ -11,16 +11,22 @@ private:
     bool _disponibilidade;
 
 public:
+    //CONSTRUTOR
     Medico(std::string name, std::string cpf, std::string data, bool sexo,std::string crm, 
     std::string especialidade, bool disponibilidade);
 
+
+    //METODOS HERDADOS A SEREM IMPLEMENTADOS
     virtual int cadastrar() override;
     virtual int alterar(int id) override;
-    virtual int consultar(int id) override;
+    virtual int consultar(int id) override; //LISTAR UM ÚNICO CADASTRO
     virtual int remover(int id) override;
-    static int  listar();      
 
 
+    static int  listar(); //LISTAR TODOS OS CADASTROS      
+
+
+    //GETTERS AND SETERS PARA TODOS OS ATRIBUTOS
     std::string get_crm() const;
     void set_crm(std::string _crm);  
 

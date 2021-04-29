@@ -37,3 +37,11 @@ int Paciente::get_leito() const{
 void Paciente::set_leito(int leito){
   this->_leito = leito;
 }
+
+int Paciente::get_max_leito() const {
+  return this->_max_leito;
+}
+
+void Paciente::set_max_leito (int max_leito){
+  this->_max_leito = max_leito;
+}

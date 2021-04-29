@@ -3,7 +3,6 @@
 Pessoa::Pessoa(std::string name, std::string cpf, std::string data, bool sexo):
   _name(name), _cpf(cpf), _data(data), _sexo(sexo){}
 
-
 std::string Pessoa::get_name() const{
   return this->_name;
 }
@@ -35,3 +34,22 @@ bool Pessoa::get_sexo() const{
 void Pessoa::set_sexo(bool sexo){
   this->_sexo = sexo;
 }
+
+unsigned int Pessoa::get_id() const{
+  return this->_id;
+}
+
+void Pessoa::set_id(unsigned int id){
+  this->_id = id;
+}
+
+int Pessoa::get_next_id() const{
+  return this->_next_id;
+}
+
+void Pessoa::set_next_id(int next_id){
+  _next_id = next_id;  
+}
+
+
+

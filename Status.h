@@ -6,16 +6,25 @@
 class Status
 {
 private:
+    //ATRIBUI OS DADOS PARA PESSOA
     int _id_pessoa;
+
+    //DADOS EM "TEMPO REAL"
     int _saturacao;
     int _bpm;
     int _freq;
     std::string _pressao;
 
 public:
+    //CONSTRUTOR
     Status(int id_pessoa, int _saturacao, int _bpm, int _freq, std::string pressao);
+    
+
+    //ATUALIZAR DADOS NO ARQUIVO ESPECÍFICO 
     int atualizar();
 
+
+    //GETTERS AND SETERS PARA TODOS OS ATRIBUTOS
     int  get_id_pessoa() const;
     int  set_id_pessoa(int id_pessoa);
 
