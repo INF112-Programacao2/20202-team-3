@@ -1,2 +1,0 @@
-TODO: Gerencia o número de leitos disponiveis
-n_leitos: 

@@ -52,4 +52,7 @@ void Pessoa::set_next_id(int next_id){
 }
 
 
-
+int Pessoa::listar()
+{
+   return 0;  
+}
