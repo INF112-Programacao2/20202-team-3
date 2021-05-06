@@ -1,4 +1,4 @@
-#include "rapidcsv/src/rapidcsv.h"
+#include "arquivo/rapidcsv.h"
 #include "Arquivo.h"
 
 Arquivo::Arquivo(std::string dirArquivo) {
