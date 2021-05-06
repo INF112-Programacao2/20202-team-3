@@ -12,7 +12,7 @@ int Status::get_id_pessoa() const{
 }
 
 int Status::set_id_pessoa(int id_pessoa){
-  this->_id_pessoa = id_pessoa;
+  return this->_id_pessoa = id_pessoa;
 }
 
 int Status::get_saturacao() const{

@@ -1,6 +1,13 @@
 #include "Paciente.h"
 
 
+int Paciente::_max_leito = 1;
+
+
+int Paciente::listar() {
+  return 0;
+}
+
 Paciente::Paciente(std::string name, std::string cpf, std::string data, bool sexo,std::string observacao, 
 std::string telefone, Status status, int leito):
   Pessoa(name, cpf, data, sexo),  _observacao(observacao), _telefone(telefone), _status(status), _leito(leito){}
@@ -22,7 +29,7 @@ void Paciente::set_telefone(std::string telefone){
   this->_telefone = telefone;
 }
 
-Status Paciente::get_status(Status status){
+Status Paciente::get_status(){
   return this->_status;  
 }
 
@@ -44,4 +51,21 @@ int Paciente::get_max_leito() const {
 
 void Paciente::set_max_leito (int max_leito){
   this->_max_leito = max_leito;
+}
+
+
+int Paciente::cadastrar() {
+  return 0;
+}
+int Paciente::alterar(int id) {
+  return 0;
+
+}
+int Paciente::consultar(int id) {
+  return 0;
+
+} //LISTAR UM ÚNICO CADASTRO
+int Paciente::remover(int id) {
+  return 0;
+
 }

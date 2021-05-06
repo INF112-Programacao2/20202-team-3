@@ -45,7 +45,7 @@ public:
     int get_leito() const;
     void set_leito(int _leito);
 
-    Status get_status(Status status);
+    Status get_status();
     void set_status(Status status);  
 
     int  get_max_leito () const;

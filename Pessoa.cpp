@@ -1,7 +1,15 @@
 #include "Pessoa.h"
 
-Pessoa::Pessoa(std::string name, std::string cpf, std::string data, bool sexo):
-  _name(name), _cpf(cpf), _data(data), _sexo(sexo){}
+unsigned int Pessoa::_next_id = 1;
+
+
+
+Pessoa::Pessoa(std::string name, std::string cpf, std::string data, bool sexo) {
+  this->_name = name;
+  this->_cpf = cpf;
+  this->_data = data;
+  this->_sexo = sexo;
+}
 
 std::string Pessoa::get_name() const{
   return this->_name;

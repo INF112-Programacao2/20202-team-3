@@ -4,15 +4,15 @@
 #include "Paciente.h"
 #include "Status.h"
 
+#include "Arquivo.h"
+
 int main ()
 {
     //ERA PRA TER OBJETOS CRIADOS AQUI
-
-   
-
     unsigned int entrada = 0;
 
     //IMPLEMENTAR MENUS DO SISTEMA
+    Arquivo arquivo("arquivo/tabela.csv");
     while (true)
     {
         try
@@ -27,6 +27,7 @@ int main ()
 
             std::cin >> entrada;
 
+            break;
 
             
         }
@@ -34,6 +35,7 @@ int main ()
         {
             std::cerr << e.what() << '\n';
         }
+
   
     }
     
