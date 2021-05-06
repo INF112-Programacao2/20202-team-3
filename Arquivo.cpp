@@ -10,4 +10,18 @@ Arquivo::Arquivo(std::string dirArquivo) {
     this->arquivo =  doc;
 
 
+
+}
+
+std::vector<std::vector<std::string>> Arquivo::getConteudo() {
+    std::vector<std::vector<std::string>> lines;
+
+    for(int i = 0; i < this->arquivo.GetRowCount()-1; i++) {
+        lines.push_back(this->arquivo.GetRow<std::string>(i));
+    }
+
+
+    return lines;
+
+
 }

@@ -1,16 +1,35 @@
 #include "Paciente.h"
+#include "Arquivo.h"
+
 
 
 int Paciente::_max_leito = 1;
 
 
 int Paciente::listar() {
+  Arquivo arquivo_pessoa("arquivo/paciente.csv");
+  std::vector<std::vector<std::string>> data = arquivo_pessoa.getConteudo();
+
+  for(std::vector<std::string> line : data) {
+       for(std::string colum : line) {
+           std::cout << colum << " ";
+       } 
+       std::cout << std::endl;
+    }
   return 0;
 }
 
-Paciente::Paciente(std::string name, std::string cpf, std::string data, bool sexo,std::string observacao, 
-std::string telefone, Status status, int leito):
-  Pessoa(name, cpf, data, sexo),  _observacao(observacao), _telefone(telefone), _status(status), _leito(leito){}
+Paciente::Paciente() {
+  
+
+  }
+
+//   Paciente::Paciente(std::string name, std::string cpf, std::string data, bool sexo,std::string observacao, 
+// std::string telefone, Status status, int leito):
+//   Pessoa(name, cpf, data, sexo),  _observacao(observacao), _telefone(telefone), _status(status), _leito(leito)
+//   {
+
+//   }
 
 
 std::string Paciente::get_observacao() const{

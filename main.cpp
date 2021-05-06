@@ -4,30 +4,52 @@
 #include "Paciente.h"
 #include "Status.h"
 
-#include "Arquivo.h"
+#include "Paciente.h"
 
 int main ()
 {
     //ERA PRA TER OBJETOS CRIADOS AQUI
-    unsigned int entrada = 0;
+    int entrada[2] = {-1,-1};
 
     //IMPLEMENTAR MENUS DO SISTEMA
-    Arquivo arquivo("arquivo/tabela.csv");
-    while (true)
+
+    
+    while (entrada[0]!=0)
     {
         try
         {
             std::cout << "-----MENU PRINCINPAL-----" << std::endl;
-            std::cout << "1 - CENTRAL DE PESSOAS" << std::endl;
-            std::cout << "2 - CENTRAL DE PACIENTES" << std::endl;
-            std::cout << "3 - CENTRAL DE MEDICOS" << std::endl;
-            std::cout << "4 - CENTRAL DE LEITOS" << std::endl;
-            std::cout << "5 - VERIFICAR STATUS" << std::endl;
-            std::cout << "6 - SAIR" << std::endl;
+            std::cout << "1 - CENTRAL DE PACIENTES" << std::endl;
+            std::cout << "2 - CENTRAL DE MEDICOS" << std::endl;
+            std::cout << "3 - CENTRAL DE LEITOS" << std::endl;
+            std::cout << "4 - VERIFICAR STATUS" << std::endl;
+            std::cout << "0 - SAIR" << std::endl;
 
-            std::cin >> entrada;
+            std::cin >> entrada[0];
+            
+            switch (entrada[0])
+            {
+            case 1:
+                std::cout << "-----MENU PACIENTES-----" << std::endl;
+                std::cout << "1 - CADASTRAR" << std::endl;
+                std::cout << "2 - ALTERAR" << std::endl;
+                std::cout << "3 - CONSULTAR" << std::endl;
+                std::cout << "4 - REMOVER" << std::endl;
+                std::cout << "5 - LISTAR" << std::endl; 
+                std::cout << "0 - SAIR" << std::endl;
+                std::cin >> entrada[1];
 
-            break;
+                switch (entrada[1])
+                {
+                case 5:
+                    Paciente::listar();
+                default:
+                    break;
+                }
+            default:
+                break;
+            }
+
 
             
         }

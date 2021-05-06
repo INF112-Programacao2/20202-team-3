@@ -22,8 +22,7 @@ private:
 public:
 
     //CONSTRUTOR
-    Paciente(std::string name, std::string cpf, std::string data, bool sexo,std::string observacao, 
-    std::string telefone, Status status, int leito);
+    Paciente();
 
     //METODOS HERDADOS A SEREM IMPLEMENTADOS
     virtual int cadastrar() override;
