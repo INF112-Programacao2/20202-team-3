@@ -46,8 +46,38 @@ int main ()
                 default:
                     break;
                 }
-            default:
                 break;
+            case 2:
+                std::cout << "-----MENU MEDICOS -----" << std::endl;
+                std::cout << "1 - CADASTRAR" << std::endl;
+                std::cout << "2 - ALTERAR" << std::endl;
+                std::cout << "3 - CONSULTAR" << std::endl;
+                std::cout << "4 - REMOVER" << std::endl;
+                std::cout << "5 - LISTAR" << std::endl; 
+                std::cout << "0 - SAIR" << std::endl;
+                std::cin >> entrada[1];
+
+                switch (entrada[1])
+                {
+                case 5:
+                    Medico::listar();
+                default:
+                    break;
+                }
+                break;
+            case 3:
+                std::cout << "-----MENU LEITOS -----" << std::endl;
+                std::cout << "1 - CAPACIDADE MAXIMA" << std::endl;
+                std::cout << "2 - DISPONIBILIDADE" << std::endl;
+                std::cout << "3 - MODIFICAR CAPACIDADE" << std::endl;
+                std::cout << "0 - SAIR" << std::endl;
+                std::cin >> entrada[1];
+                break;  
+            case 4:
+                //TODO: TEORICAMENTE AQUI VAI CHAMAR O METODO QUE ATULIZA E INFOMAR O STATUS DO CIDADAO 
+            break;      
+            default:
+                break;          
             }
 
 
