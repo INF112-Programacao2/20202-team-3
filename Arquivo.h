@@ -16,6 +16,8 @@ public:
     //CONSTRUTOR
     Arquivo(std::string dirArquivo);
     std::vector<std::vector<std::string>> getConteudo();
+    std::vector<std::vector<std::string>> setConteudo();
+
     
     
 

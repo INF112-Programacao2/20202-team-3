@@ -12,7 +12,7 @@ int main ()
     int entrada[2] = {-1,-1};
 
     //IMPLEMENTAR MENUS DO SISTEMA
-
+    Paciente paciente;
     
     while (entrada[0]!=0)
     {
@@ -35,14 +35,18 @@ int main ()
                 std::cout << "2 - ALTERAR" << std::endl;
                 std::cout << "3 - CONSULTAR" << std::endl;
                 std::cout << "4 - REMOVER" << std::endl;
-                std::cout << "5 - LISTAR" << std::endl; 
+                std::cout << "5 - LISTAR" << std::endl;  
                 std::cout << "0 - SAIR" << std::endl;
                 std::cin >> entrada[1];
 
                 switch (entrada[1])
                 {
+                case 1:
+                    paciente.cadastrar();
+                    break; 
                 case 5:
                     Paciente::listar();
+                    break;
                 default:
                     break;
                 }
