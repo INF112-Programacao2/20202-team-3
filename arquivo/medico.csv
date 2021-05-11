@@ -1,6 +1,7 @@
 id,name,cpf,data,sexo,crm,especialidade,disponibilidade
-001,Nome 1,000.000.000-00,13/03/2000,Masculino,13213,Pulmao,Disponivel
-001,Nome 1,000.000.000-00,13/03/2000,Masculino,13213,Pulmao,Disponivel
-001,Nome 1,000.000.000-00,13/03/2000,Masculino,13213,Pulmao,Disponivel
-001,Nome 1,000.000.000-00,13/03/2000,Masculino,13213,Pulmao,Disponivel
-001,Nome 1,000.000.000-00,13/03/2000,Masculino,13213,Pulmao,Disponivel
+001,"Nome 1",000.000.000-00,13/03/2000,Masculino,13213,Pulmao,Disponivel
+001,"Nome 1",000.000.000-00,13/03/2000,Masculino,13213,Pulmao,Disponivel
+001,"Nome 1",000.000.000-00,13/03/2000,Masculino,13213,Pulmao,Disponivel
+001,"Nome 1",000.000.000-00,13/03/2000,Masculino,13213,Pulmao,Disponivel
+001,"Nome 1",000.000.000-00,13/03/2000,Masculino,13213,Pulmao,Disponivel
+2,Joana,123321321321,01/01/0001,F,1321321,Cardiologista,S

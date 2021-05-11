@@ -9,7 +9,7 @@ class Paciente : public Pessoa
 private:
 
 public:
-    //TODO: -1 em leito = vazio;
+    //-1 em leito = vazio;
     //CONSTRUTOR
     Paciente();
 

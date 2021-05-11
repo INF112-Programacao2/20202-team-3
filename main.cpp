@@ -8,11 +8,13 @@
 
 int main ()
 {
+    //TODO: CRIAR CLASSE PARA VALIDAR TODAS AS ENTRADAS DE DADOS
     //ERA PRA TER OBJETOS CRIADOS AQUI
     int entrada[2] = {-1,-1};
-
-    //IMPLEMENTAR MENUS DO SISTEMA
+    int id = 0;
     Paciente paciente;
+    Medico   medico;
+
     
     while (entrada[0]!=0)
     {
@@ -44,6 +46,11 @@ int main ()
                 case 1:
                     paciente.cadastrar();
                     break; 
+                case 3:
+                    std::cout << "Digiteo id do paciente" << std::endl;
+                    std::cin >> id;
+                    paciente.consultar(id);
+                    break;    
                 case 5:
                     Paciente::listar();
                     break;
@@ -63,8 +70,12 @@ int main ()
 
                 switch (entrada[1])
                 {
+                case 1:
+                    medico.cadastrar();
+                    break;    
                 case 5:
                     Medico::listar();
+                    break; 
                 default:
                     break;
                 }
