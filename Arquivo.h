@@ -12,11 +12,12 @@ class Arquivo
 {
 private:
     rapidcsv::Document arquivo;
+    std::string filename;
 public:
     //CONSTRUTOR
     Arquivo(std::string dirArquivo);
     std::vector<std::vector<std::string>> getConteudo();
-    std::vector<std::vector<std::string>> setConteudo();
+    int setConteudo(std::vector<std::vector<std::string>> content);
 
     
     

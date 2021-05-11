@@ -69,7 +69,8 @@ int Paciente::cadastrar()
   auxiliar.push_back(leito);
   
   data.push_back(auxiliar);
-  
+
+  arquivo_paciente.setConteudo(data);  
   return 0;
 }
 

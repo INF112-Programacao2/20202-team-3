@@ -3,7 +3,8 @@
 
 Arquivo::Arquivo(std::string dirArquivo) {
     //abre o arquivo
-    rapidcsv::Document doc(dirArquivo, rapidcsv::LabelParams(-1, -1));
+    this->filename = dirArquivo;
+    rapidcsv::Document doc(this->filename, rapidcsv::LabelParams(-1, -1));
     this->arquivo =  doc;
 }
 
@@ -20,9 +21,12 @@ std::vector<std::vector<std::string>> Arquivo::getConteudo() {
 
 }
 
-/*std::vector<std::vector<std::string>> Arquivo::setConteudo(){
-    std::
+int Arquivo::setConteudo(std::vector<std::vector<std::string>> content){
+    for(int i = 0; i < content.size(); i++) {
+        this->arquivo.SetRow(i, content[i]);
+    }
 
+    this->arquivo.Save(this->filename);
 
+    return 0;
 }
-*/

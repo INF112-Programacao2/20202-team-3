@@ -1,6 +1,2 @@
-id,name,cpf,data,sexo,obs,tel,leito, status
-1,Nome 1,000.000.000-00,13/03/2000,Masculino,teste,4002-8922,STATUS,232
-2,Nome 2,000.000.000-00,13/03/2000,Masculino,teste,4002-8922,STATUS,11
-3,Nome 3,000.000.000-00,13/03/2000,Masculino,teste,4002-8922,STATUS,13
-4,Nome 4,000.000.000-00,13/03/2000,Masculino,teste,4002-8922,STATUS,23
-5,Nome 5,000.000.000-00,13/03/2000,Masculino,teste,4002-8922,STATUS,69
+id,name,cpf,data,sexo,obs,tel,leito,status
+1,"Nome 1",000.000.000-00,13/03/2000,Masculino,teste,4002-8922,STATUS,232,
