@@ -1,9 +1,9 @@
 #include "Medico.h"
 #include "Arquivo.h"
 
+Arquivo arquivo_medico("arquivo/medico.csv");
 
 int Medico::listar() {
-  Arquivo arquivo_medico("arquivo/medico.csv");
   std::vector<std::vector<std::string>> data = arquivo_medico.getConteudo();
 
   for(std::vector<std::string> line : data) {

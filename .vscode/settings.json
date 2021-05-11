@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.txt": "javascript",
         "array": "cpp",
         "atomic": "cpp",
         "*.tcc": "cpp",
@@ -42,6 +43,16 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "bit": "cpp",
+        "chrono": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "ctime": "cpp",
+        "numeric": "cpp",
+        "random": "cpp",
+        "ratio": "cpp",
+        "iomanip": "cpp",
+        "ranges": "cpp"
     }
 }

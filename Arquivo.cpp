@@ -22,6 +22,7 @@ std::vector<std::vector<std::string>> Arquivo::getConteudo() {
 }
 
 int Arquivo::setConteudo(std::vector<std::vector<std::string>> content){
+    this->arquivo.Clear();
     for(int i = 0; i < content.size(); i++) {
         this->arquivo.SetRow(i, content[i]);
     }

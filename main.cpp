@@ -34,7 +34,7 @@ int main ()
             case 1:
                 std::cout << "-----MENU PACIENTES-----" << std::endl;
                 std::cout << "1 - CADASTRAR" << std::endl;
-                std::cout << "2 - ALTERAR" << std::endl;
+                std::cout << "2 - ALTERAR" << std::endl; //TODO
                 std::cout << "3 - CONSULTAR" << std::endl;
                 std::cout << "4 - REMOVER" << std::endl;
                 std::cout << "5 - LISTAR" << std::endl;  
@@ -46,11 +46,21 @@ int main ()
                 case 1:
                     paciente.cadastrar();
                     break; 
-                case 3:
-                    std::cout << "Digiteo id do paciente" << std::endl;
+                case 2:
+                    std::cout << "Digite o id do paciente" << std::endl;
                     std::cin >> id;
                     paciente.consultar(id);
-                    break;    
+                    break;
+                case 3:
+                    std::cout << "Digite o id do paciente" << std::endl;
+                    std::cin >> id;
+                    paciente.alterar(id);
+                    break;   
+                case 4:
+                    std::cout << "Digite o id do paciente" << std::endl;
+                    std::cin >> id;
+                    paciente.remover(id);
+                    break; 
                 case 5:
                     Paciente::listar();
                     break;
@@ -89,7 +99,7 @@ int main ()
                 std::cin >> entrada[1];
                 break;  
             case 4:
-                //TODO: TEORICAMENTE AQUI VAI CHAMAR O METODO QUE ATULIZA E INFOMAR O STATUS DO CIDADAO 
+                //TODO: TEORICAMENTE AQUI VAI CHAMAR O METODO QUE ATUALIZA E INFORMA O STATUS DO CIDADAO 
             break;      
             default:
                 break;          
