@@ -110,8 +110,7 @@ int Paciente::alterar(int id)
       
       switch (campo)
       {
-      case:
-        /* code */
+      case 1:
         break;
       
       default:
