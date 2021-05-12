@@ -43,14 +43,39 @@ int Paciente::cadastrar()
       break;
   }
 
-  std::cout << "Digite o CPF do paciente: " << std::endl;
-  std::cin >> cpf;
+  while(true){
+    std::cout << "Digite o CPF do paciente(Somente números): " << std::endl ;
+    std::cin >> cpf;
+
+  //VERIFICA A QUANTIDADE DE DIGITOS E SE HÁ APENAS NUMEROS
+    int aux=0;
+    for(int i=0;cpf[i]!='\0';i++){
+      if(cpf[i]<='0' || cpf[i]>='9'){
+        aux=0;
+        break;
+      }
+      aux++;
+    }
+    if(aux==11)
+      break;
+    else
+      std::cout<< "CPF inválido!" << std::endl;
+  }
 
   std::cout << "Digite a data de nascimento do paciente (dd/mm/aaaa): " << std::endl;
   std::cin >> data_nascimento;
 
-  std::cout << "Digite o sexo(M/F): " << std::endl;
-  std::cin >> sexo;
+  while(true){
+    std::cout << "Digite o sexo(M/F): " << std::endl ;
+    std::cin >> sexo;
+
+    //VERIFICA SE DIGITOU M OU F
+    //TODO TRANSFORMAR MIN EM MAIUSCULO
+    if((sexo[0]== 'M'  || sexo[0] == 'F') && sexo[1]=='\0')
+      break;
+    else
+      std::cout << "Sexo inválido" << std::endl;
+  }
 
   std::cout << "Digite alguma observação sobre o paciente (opcional): " << std::endl;
 
