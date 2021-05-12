@@ -20,7 +20,7 @@ int main ()
     {
         try
         {
-            std::cout << "-----MENU PRINCINPAL-----" << std::endl;
+            std::cout << "-----MENU PRINCIPAL-----" << std::endl;
             std::cout << "1 - CENTRAL DE PACIENTES" << std::endl;
             std::cout << "2 - CENTRAL DE MEDICOS" << std::endl;
             std::cout << "3 - CENTRAL DE LEITOS" << std::endl;
@@ -45,24 +45,29 @@ int main ()
                 {
                 case 1:
                     paciente.cadastrar();
+                    entrada[1] = -1;
                     break; 
                 case 2:
                     std::cout << "Digite o id do paciente" << std::endl;
                     std::cin >> id;
                     paciente.consultar(id);
+                    entrada[1] = -1;
                     break;
                 case 3:
                     std::cout << "Digite o id do paciente" << std::endl;
                     std::cin >> id;
-                    paciente.alterar(id);
+                    paciente.consultar(id);
+                    entrada[1] = -1;
                     break;   
                 case 4:
                     std::cout << "Digite o id do paciente" << std::endl;
                     std::cin >> id;
                     paciente.remover(id);
+                    entrada[1] = -1;
                     break; 
                 case 5:
                     Paciente::listar();
+                    entrada[1] = -1;
                     break;
                 default:
                     break;
@@ -82,9 +87,29 @@ int main ()
                 {
                 case 1:
                     medico.cadastrar();
-                    break;    
+                    entrada[1] = -1;
+                    break;
+                case 2:
+                    std::cout << "Digite o id do médico" << std::endl;
+                    std::cin >> id;
+                    medico.alterar(id);
+                    entrada[1] = -1;
+                    break;
+                case 3:
+                    std::cout << "Digite o id do médico" << std::endl;
+                    std::cin >> id;
+                    medico.consultar(id);
+                    entrada[1] = -1;
+                    break;
+                case 4:
+                    std::cout << "Digite o id do médico" << std::endl;
+                    std::cin >> id;
+                    medico.remover(id);
+                    entrada[1] = -1;
+                    break;                
                 case 5:
                     Medico::listar();
+                    entrada[1] = -1;
                     break; 
                 default:
                     break;
@@ -113,7 +138,7 @@ int main ()
             std::cerr << e.what() << '\n';
         }
 
-  
+        
     }
     
     return 0;
