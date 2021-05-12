@@ -1,7 +1,9 @@
 #include "Paciente.h"
 #include "Arquivo.h"
+#include <ctype.h>
 #include <string>
 
+int MAX_LEITO=5000;
 Arquivo arquivo_paciente("arquivo/paciente.csv");
 
 int Paciente::listar()
@@ -62,17 +64,20 @@ int Paciente::cadastrar()
       std::cout<< "CPF inválido!" << std::endl;
   }
 
-  std::cout << "Digite a data de nascimento do paciente (dd/mm/aaaa): " << std::endl;
-  std::cin >> data_nascimento;
+
+    std::cout << "Digite a data de nascimento do paciente (dd/mm/aaaa): " << std::endl;
+    std::cin >> data_nascimento;
 
   while(true){
     std::cout << "Digite o sexo(M/F): " << std::endl ;
     std::cin >> sexo;
 
     //VERIFICA SE DIGITOU M OU F
-    //TODO TRANSFORMAR MIN EM MAIUSCULO
-    if((sexo[0]== 'M'  || sexo[0] == 'F') && sexo[1]=='\0')
+    if((sexo[0]== 'M'  || sexo[0] == 'F' || sexo[0]=='m' || sexo[0]=='f') && sexo[1]=='\0'){
+      if(sexo[0]=='m' || sexo[0]=='f')
+        sexo[0]=toupper(sexo[0]);
       break;
+    }
     else
       std::cout << "Sexo inválido" << std::endl;
   }
@@ -85,9 +90,24 @@ int Paciente::cadastrar()
       break;
   }
 
-  std::cout << "Digite o telefone do paciente: " << std::endl;
-  std::cin >> tel;
-
+  while(true)
+  {
+    std::cout << "Digite o telefone do paciente: " << std::endl;
+    std::cin >> tel;
+    
+    //VERIFICA SE HÁ SOMENTE NUMEROS
+    bool verifica_digito = true;
+    for(int i=0;tel[i]!='\0';i++){
+      if(tel[i]<='0' || tel[i]>='9'){
+        verifica_digito = false;
+        break;
+      }
+    }
+    if(verifica_digito == true)
+      break;
+    else
+      std::cout << "Telfone Inválido!" << std::endl;
+  }
   std::cout << "Digite o número do leito do paciente: " << std::endl;
   std::cin >> leito;
 
