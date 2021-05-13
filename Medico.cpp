@@ -1,5 +1,7 @@
 #include "Medico.h"
 #include "Arquivo.h"
+#include <regex>
+#include <ctype.h>
 
 Arquivo arquivo_medico("arquivo/medico.csv");
 
@@ -101,16 +103,14 @@ int Medico::alterar(int id) {
 
   std::cin >> campo;
   std::cout << std::endl;
-
+  
   for (int i = 1; i < data.size(); i++)
   {
     //FAZ A VERIFICAÇÃO DE ID
     int id_linha = stoi(data[i][0]);
-
+    bool id_existe=true;
     if (id_linha == id)
     {
-
-      
       switch (campo)
       {
       case 1:
@@ -121,19 +121,19 @@ int Medico::alterar(int id) {
             if(novo != "")
               break;
           }
-          //TODO RETIRAR MAIS ALGUNS CARACTERES
-          bool verifica = true;
-          for(int i=0;novo[i]!='\0';i++){
-            if(novo[i]<='@'){
-              verifica = false;
-              break;
-            }
+          bool verifica = false;
+          std::regex re(R"(^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*$)");
+          if (std::regex_match(novo, re)) {
+            verifica = true;
+          } else {
+            verifica = false;
           }
           if(verifica == true)
             break;
           else
             std::cout << "Nome inválido!" << std::endl;
         }
+        
         data[i][1] = novo;
         break;
         
@@ -288,7 +288,6 @@ int Medico::consultar(int id) {
       break;
     }
 
-    //TODO: VERIFICAÇÃO DE ID
   }
 
   return 0;
@@ -314,7 +313,6 @@ int Medico::remover(int id) {
       break;
     }
 
-    //TODO: VERIFICAÇÃO DE ID
   }
 
   arquivo_medico.setConteudo(data);

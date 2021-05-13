@@ -8,8 +8,6 @@
 
 int main ()
 {
-    //TODO: CRIAR CLASSE PARA VALIDAR TODAS AS ENTRADAS DE DADOS
-    //ERA PRA TER OBJETOS CRIADOS AQUI
     int entrada[2] = {-1,-1};
     int id = 0;
     Paciente paciente;
@@ -34,7 +32,7 @@ int main ()
             case 1:
                 std::cout << "-----MENU PACIENTES-----" << std::endl;
                 std::cout << "1 - CADASTRAR" << std::endl;
-                std::cout << "2 - ALTERAR" << std::endl; //TODO
+                std::cout << "2 - ALTERAR" << std::endl; 
                 std::cout << "3 - CONSULTAR" << std::endl;
                 std::cout << "4 - REMOVER" << std::endl;
                 std::cout << "5 - LISTAR" << std::endl;  
@@ -48,6 +46,7 @@ int main ()
                     entrada[1] = -1;
                     break; 
                 case 2:
+                //TODO verificar id quanto a digito e se esta no vetor de id
                     std::cout << "Digite o id do paciente" << std::endl;
                     std::cin >> id;
                     paciente.consultar(id);

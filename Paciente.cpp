@@ -198,7 +198,7 @@ int Paciente::alterar(int id)
       break;
     }
 
-    //TODO: VERIFICAÇÃO DE ID
+  
   }
 
   return 0;
@@ -247,7 +247,6 @@ int Paciente::remover(int id)
 
   for (int i = 1; i < data.size(); i++)
   {
-    //FAZ A VERIFICAÇÃO DE ID
     int id_linha = stoi(data[i][0]);
 
     if (id_linha == id)
@@ -259,7 +258,6 @@ int Paciente::remover(int id)
       break;
     }
 
-    //TODO: VERIFICAÇÃO DE ID
   }
 
   arquivo_paciente.setConteudo(data);
