@@ -3,6 +3,19 @@
 
 Arquivo arquivo_medico("arquivo/medico.csv");
 
+static std::vector<std::string> split(const std::string& str, char delim){
+   auto i = 0;
+   std::vector<std::string> list; 
+   auto pos = str.find(delim);
+   while (pos != std::string::npos){
+      list.push_back(str.substr(i, pos - i));
+      i = ++pos;
+      pos = str.find(delim, pos);
+   }
+   list.push_back(str.substr(i, str.length()));
+   return list;
+}
+
 int Medico::listar() {
   std::vector<std::vector<std::string>> data = arquivo_medico.getConteudo();
 
@@ -147,22 +160,24 @@ int Medico::alterar(int id) {
         break;
       
       case 3:
-      //  while(true){
+        while(true){
+          bool validacao =true;
           std::cout << "Digite a nova Data: " << std::endl;
           std::cin >> novo;
-      /*    bool validacao =true;
-          //VERIFICA DATA
-          std::string dia;
-          std::string mes;
-          std::string ano; 
-          dia[0]=novo[0];
-          dia[1]=novo[1];
-          mes[0]=novo[3];
-          mes[1]=novo[4];
-          ano[0]=novo[6];
-          ano[1]=novo[7];
-          ano[2]=novo[8];
-          ano[3]=novo[9];
+
+          //Verifica por Regex se a data está no formato: dd/mm/yyyy
+          std::regex re(R"(^(0?[1-9]|[21][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$)");
+          while(!std::regex_match(novo, re)) {
+            std::cout << "Data inválida, digite a nova Data: " << std::endl;
+            std::cin >> novo;
+          }
+
+
+
+          //Verifica se a data está valida
+          std::string dia = split(novo, '/')[0];
+          std::string mes = split(novo, '/')[1];
+          std::string ano = split(novo, '/')[2]; 
           if(stoi(mes)==1 || stoi(mes)==3 || stoi(mes)==5 || stoi(mes)==7
           ||stoi(mes)==8 || stoi(mes)==10 ||stoi(mes)==12 ){
             if(stoi(dia)>31 || stoi(dia)<1)
@@ -184,7 +199,7 @@ int Medico::alterar(int id) {
             break;
           else 
             std::cout << "Data inválida" << std::endl;
-        }*/
+        }
         data[i][3] = novo;
         break;
         
@@ -316,3 +331,5 @@ int Medico::remover(int id) {
   return 0;
   
 }
+
+

@@ -1,6 +1,6 @@
 id,name,cpf,data,sexo,crm,especialidade,disponibilidade
-001,ana,11122233311,1122233,M,13213,Pulmao,S
-3,"Zezim Boladao",123321456987,11/09/2000,M,1233213211,Podologo,S
+1,ana,11122233311,20/01/2001,M,13213,Pulmao,S
+3,"Zezim Boladao",123321456987,20/01/2001,M,1233213211,Podologo,S
 4,Bernardo,09797163652,13/03/2000,M,00000033300,Gastro,N
 5,Jaspion,010123012031,01/01/0001,F,000000001,Geriatra,N
 6,Jorjao,12343454567,13/13/1105,F,1231243524,Proctologista,S

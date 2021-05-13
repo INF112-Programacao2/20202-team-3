@@ -2,6 +2,8 @@
 #define TEAM_3_MEDICO_H
 #include <iostream>
 #include "Pessoa.h"
+#include <regex>
+
 
 class Medico : public Pessoa
 {

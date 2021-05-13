@@ -53,6 +53,12 @@
         "random": "cpp",
         "ratio": "cpp",
         "iomanip": "cpp",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "bitset": "cpp",
+        "condition_variable": "cpp",
+        "cstring": "cpp",
+        "regex": "cpp",
+        "shared_mutex": "cpp",
+        "stop_token": "cpp"
     }
 }

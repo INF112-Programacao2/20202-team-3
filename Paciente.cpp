@@ -1,6 +1,7 @@
 #include "Paciente.h"
 #include "Arquivo.h"
 #include <ctype.h>
+#include <regex>
 
 
 int MAX_LEITO=5000;
@@ -46,13 +47,12 @@ int Paciente::cadastrar()
       break;
     }
 
-  //TODO RETIRAR MAIS ALGUNS CARACTERES
-    bool verifica = true;
-    for(int i=0;nome[i]!='\0';i++){
-      if(nome[i]<='@'){
-        verifica = false;
-        break;
-      }
+    bool verifica = false;
+    std::regex re(R"(^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*$)");
+    if (std::regex_match(nome, re)) {
+      verifica = true;
+    } else {
+      verifica = false;
     }
     if(verifica == true)
       break;
