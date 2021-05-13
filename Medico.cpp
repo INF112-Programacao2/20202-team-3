@@ -101,34 +101,106 @@ int Medico::alterar(int id) {
       switch (campo)
       {
       case 1:
-
-        std::cout << "Digite o novo nome: " << std::endl;
-        while(std::getline(std::cin, novo))
-        {
-          if(novo != "")
+        while(true){
+          std::cout << "Digite o novo nome: " << std::endl;
+          while(std::getline(std::cin, novo))
+          {
+            if(novo != "")
+              break;
+          }
+          //TODO RETIRAR MAIS ALGUNS CARACTERES
+          bool verifica = true;
+          for(int i=0;novo[i]!='\0';i++){
+            if(novo[i]<='@'){
+              verifica = false;
+              break;
+            }
+          }
+          if(verifica == true)
             break;
+          else
+            std::cout << "Nome inválido!" << std::endl;
         }
         data[i][1] = novo;
         break;
-
+        
       case 2:
-
-        std::cout << "Digite o novo cpf: " << std::endl;
-        std::cin >> novo;
+      
+        while(true){
+          std::cout << "Digite o novo cpf: " << std::endl;
+          std::cin >> novo;
+          //VERIFICA A QUANTIDADE DE DIGITOS E SE HÁ APENAS NUMEROS
+          int aux=0;
+          for(int i=0;novo[i]!='\0';i++){
+            if(novo[i]<='0' || novo[i]>='9'){
+              aux=0;
+              break;
+            }
+            aux++;
+          }
+          if(aux==11)
+            break;
+          else
+            std::cout<< "CPF inválido!" << std::endl;
+        }
         data[i][2] = novo;
         break;
-
+      
       case 3:
-
-        std::cout << "Digite a nova Data: " << std::endl;
-        std::cin >> novo;
+      //  while(true){
+          std::cout << "Digite a nova Data: " << std::endl;
+          std::cin >> novo;
+      /*    bool validacao =true;
+          //VERIFICA DATA
+          std::string dia;
+          std::string mes;
+          std::string ano; 
+          dia[0]=novo[0];
+          dia[1]=novo[1];
+          mes[0]=novo[3];
+          mes[1]=novo[4];
+          ano[0]=novo[6];
+          ano[1]=novo[7];
+          ano[2]=novo[8];
+          ano[3]=novo[9];
+          if(stoi(mes)==1 || stoi(mes)==3 || stoi(mes)==5 || stoi(mes)==7
+          ||stoi(mes)==8 || stoi(mes)==10 ||stoi(mes)==12 ){
+            if(stoi(dia)>31 || stoi(dia)<1)
+              validacao =false;
+          }
+          else if(stoi(mes)==4 || stoi(mes)==6 || stoi(mes)==9 || stoi(mes)==11){
+            if(stoi(dia)>30 || stoi(dia)<1)
+              validacao =false;
+          }
+          else if(stoi(mes)==2){
+            if(stoi(dia)>28 || stoi(dia)<1)
+              validacao =false;
+          }
+          else
+            validacao =false;
+          if(stoi(ano)<1)
+            validacao=false;
+          if(validacao == true)
+            break;
+          else 
+            std::cout << "Data inválida" << std::endl;
+        }*/
         data[i][3] = novo;
         break;
-
-      case 4:
         
-        std::cout << "Digite o novo Sexo: " << std::endl;
-        std::cin >> novo;
+      case 4:
+        while(true){  
+          std::cout << "Digite o novo Sexo: " << std::endl;
+          std::cin >> novo;
+          //VERIFICA SE DIGITOU M OU F
+          if((novo[0] == 'M'  || novo[0] == 'F' || novo[0]=='m' || novo[0]=='f') && novo[1]=='\0'){
+            if(novo[0]=='m' || novo[0]=='f')
+              novo[0]=toupper(novo[0]);
+            break;
+          }
+          else
+            std::cout << "Sexo inválido" << std::endl;
+        }
         data[i][4] = novo;
         break;
 
@@ -147,9 +219,18 @@ int Medico::alterar(int id) {
         break;
 
       case 7:
-        
-        std::cout << "Digite a  Disponibilidade: " << std::endl;
-        std::cin >> novo;
+        while(true){
+          std::cout << "Digite a  Disponibilidade: " << std::endl;
+          std::cin >> novo;
+          //VERIFICA SE DIGITOU S OU N
+          if((novo[0]== 'S'  || novo[0] == 'N' || novo[0]=='s' || novo[0]=='n') && novo[1]=='\0'){
+            if(novo[0]=='s' || novo[0]=='n')
+              novo[0]=toupper(novo[0]);
+            break;
+          }
+          else
+            std::cout << "Disponibilidade inválida" << std::endl;
+        }
         data[i][7] = novo;
         break;
    

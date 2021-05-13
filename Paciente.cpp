@@ -1,7 +1,7 @@
 #include "Paciente.h"
 #include "Arquivo.h"
 #include <ctype.h>
-#include <string>
+
 
 int MAX_LEITO=5000;
 Arquivo arquivo_paciente("arquivo/paciente.csv");
@@ -38,11 +38,26 @@ int Paciente::cadastrar()
 
   //OS std::cout`s ABAIXO RECUPERAM CAMPOS PRO VETOR AUXILIAR
   int id = stoi(data[data.size() - 1][0]);
-  std::cout << "Digite o nome do paciente: " << std::endl;
-  while (std::getline(std::cin, nome))
-  {
-    if (nome != "")
+  while(true){
+    std::cout << "Digite o nome do paciente: " << std::endl;
+    while (std::getline(std::cin, nome))
+    {
+      if (nome != "")
       break;
+    }
+
+  //TODO RETIRAR MAIS ALGUNS CARACTERES
+    bool verifica = true;
+    for(int i=0;nome[i]!='\0';i++){
+      if(nome[i]<='@'){
+        verifica = false;
+        break;
+      }
+    }
+    if(verifica == true)
+      break;
+    else
+      std::cout << "Nome inválido!" << std::endl;
   }
 
   while(true){
@@ -63,10 +78,9 @@ int Paciente::cadastrar()
     else
       std::cout<< "CPF inválido!" << std::endl;
   }
-
-
-    std::cout << "Digite a data de nascimento do paciente (dd/mm/aaaa): " << std::endl;
-    std::cin >> data_nascimento;
+  
+  std::cout << "Digite a data de nascimento do paciente (dd/mm/aaaa): " << std::endl;
+  std::cin >> data_nascimento;
 
   while(true){
     std::cout << "Digite o sexo(M/F): " << std::endl ;
@@ -106,10 +120,17 @@ int Paciente::cadastrar()
     if(verifica_digito == true)
       break;
     else
-      std::cout << "Telfone Inválido!" << std::endl;
+      std::cout << "Telfone inválido!" << std::endl;
   }
-  std::cout << "Digite o número do leito do paciente: " << std::endl;
-  std::cin >> leito;
+
+  while(true){
+    std::cout << "Digite o número do leito do paciente: " << std::endl;
+    std::cin >> leito;
+    if(stoi(leito)>=0 && stoi(leito)<=MAX_LEITO)
+      break;
+    else 
+      std::cout << "Número do leito inválido!" << std::endl;
+  }
 
   //AUXILIAR RECEBE DADOS
   auxiliar.push_back(std::to_string(++id));
