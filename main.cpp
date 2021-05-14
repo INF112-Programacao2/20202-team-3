@@ -1,9 +1,10 @@
 #include <iostream>
+#include <iomanip>
 #include "Pessoa.h"
 #include "Medico.h"
 #include "Paciente.h"
 #include "Status.h"
-
+#include "Leito.h"
 #include "Paciente.h"
 
 int main ()
@@ -12,6 +13,7 @@ int main ()
     int id = 0;
     Paciente paciente;
     Medico   medico;
+    Leito    leito;
 
     
     while (entrada[0]!=0)
@@ -49,7 +51,7 @@ int main ()
                 //TODO verificar id quanto a digito e se esta no vetor de id
                     std::cout << "Digite o id do paciente" << std::endl;
                     std::cin >> id;
-                    paciente.consultar(id);
+                    paciente.alterar(id);
                     entrada[1] = -1;
                     break;
                 case 3:
@@ -117,11 +119,39 @@ int main ()
             case 3:
                 std::cout << "-----MENU LEITOS -----" << std::endl;
                 std::cout << "1 - CAPACIDADE MAXIMA" << std::endl;
-                std::cout << "2 - DISPONIBILIDADE" << std::endl;
-                std::cout << "3 - MODIFICAR CAPACIDADE" << std::endl;
+                std::cout << "2 - ALTERAR CAPACIDADE" << std::endl;
+                std::cout << "3 - OCUPAÇÃO" << std::endl;
                 std::cout << "0 - SAIR" << std::endl;
                 std::cin >> entrada[1];
-                break;  
+                switch (entrada[1])
+                {
+                case 1:
+                    std::cout << "Capacidade máxima: " << Leito::exibir() << std::endl;
+                    entrada[1] = -1;
+                    break;
+                case 2:
+                    int max;
+                    while(true){
+                        std::cout << "Digite a nova capacidade máxima: " << std::endl;
+                        std::cin >> max;
+                        if(max>=0) {
+                            leito.alterar(max);
+                            break;
+                        }
+                        else 
+                        std::cout << "Número do leito inválido!" << std::endl;
+                    }
+                    entrada[1] = -1;
+                    break;
+                case 3:
+                    std::cout << "Ocupação: ";
+                    std::cout << std::fixed << std::setprecision(1) << leito.ocupacao() << "%" << std::endl;
+                    entrada[1] = -1;
+                    break;
+                default:
+                    break;
+                }
+                break;
             case 4:
                 //TODO: TEORICAMENTE AQUI VAI CHAMAR O METODO QUE ATUALIZA E INFORMA O STATUS DO CIDADAO 
             break;      

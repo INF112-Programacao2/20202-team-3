@@ -1,8 +1,8 @@
 all:
 	echo "alguma coisa"
 
-compilar: main.cpp Arquivo.h Arquivo.cpp Pessoa.h Medico.h Medico.cpp Paciente.h Paciente.cpp Status.h Status.cpp
-	g++ main.cpp Arquivo.cpp Medico.cpp Paciente.cpp Status.cpp -o programa
+compilar: main.cpp Arquivo.h Arquivo.cpp Pessoa.h Medico.h Medico.cpp Paciente.h Paciente.cpp Status.h Status.cpp Leito.h Leito.cpp
+	g++ main.cpp Arquivo.cpp Medico.cpp Paciente.cpp Status.cpp Leito.cpp -o programa
 
 executar_w:
 	./programa.exe

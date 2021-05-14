@@ -19,6 +19,7 @@ public:
     virtual int consultar(int id) override; //LISTAR UM ÚNICO CADASTRO
     virtual int remover(int id) override;
 
+    static int getLenght();
 
     static int  listar(); //LISTAR TODOS OS CADASTROS
 };
