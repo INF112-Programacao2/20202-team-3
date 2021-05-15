@@ -2,10 +2,12 @@
 #include "Arquivo.h"
 #include <ctype.h>
 #include <regex>
+#include <string>
 #include "Leito.h"
+#include "Status.h"
 
 Arquivo arquivo_paciente("arquivo/paciente.csv");
-
+Status status;
 static std::vector<std::string> split(const std::string& str, char delim){
    auto i = 0;
    std::vector<std::string> list; 
@@ -45,10 +47,9 @@ int Paciente::cadastrar()
 {
   std::string nome, data_nascimento, sexo, cpf, obs, tel, leito;
   std::vector<std::string> auxiliar;
-
   //JOGAR ARQUIVO NA MATRIZ
   std::vector<std::vector<std::string>> data = arquivo_paciente.getConteudo();
-
+  
   //OS std::cout`s ABAIXO RECUPERAM CAMPOS PRO VETOR AUXILIAR
   int id = stoi(data[data.size() - 1][0]);
   while(true){
@@ -124,7 +125,7 @@ int Paciente::cadastrar()
     //VERIFICA SE HÁ SOMENTE NUMEROS
     bool verifica_digito = true;
     for(int i=0;tel[i]!='\0';i++){
-      if(tel[i]<='0' || tel[i]>='9'){
+      if(tel[i]<'0' || tel[i]>'9'){
         verifica_digito = false;
         break;
       }
@@ -153,7 +154,9 @@ int Paciente::cadastrar()
   auxiliar.push_back(obs);
   auxiliar.push_back(tel);
   auxiliar.push_back(leito);
-
+  status.cadastrar(std::to_string(id));
+  
+  
   //JOGAR OS DADOS DO AUXILIAR PRA MATRIZ
   data.push_back(auxiliar);
 

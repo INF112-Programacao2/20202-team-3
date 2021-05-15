@@ -3,24 +3,26 @@
 #include <iostream>
 #include "Status.h"
 #include "Pessoa.h"
+#include <stdlib.h>
 
 class Paciente : public Pessoa
 {
-private:
+    private:
 
-public:
-    //-1 em leito = vazio;
-    //CONSTRUTOR
-    Paciente();
+    public:
+        //Status status();
+        //-1 em leito = vazio;
+        //CONSTRUTOR
+        Paciente();
 
-    //METODOS HERDADOS A SEREM IMPLEMENTADOS
-    virtual int cadastrar() override;
-    virtual int alterar(int id) override;
-    virtual int consultar(int id) override; //LISTAR UM ÚNICO CADASTRO
-    virtual int remover(int id) override;
+        //METODOS HERDADOS A SEREM IMPLEMENTADOS
+        virtual int cadastrar() override;
+        virtual int alterar(int id) override;
+        virtual int consultar(int id) override; //LISTAR UM ÚNICO CADASTRO
+        virtual int remover(int id) override;
 
-    static int getLenght();
+        static int getLenght();
 
-    static int  listar(); //LISTAR TODOS OS CADASTROS
+        static int  listar(); //LISTAR TODOS OS CADASTROS
 };
 #endif

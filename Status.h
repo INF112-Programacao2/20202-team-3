@@ -1,17 +1,18 @@
 #ifndef TEAM_3_STATUS_H
 #define TEAM_3_STATUS_H
 #include <iostream>
-
+#include "Arquivo.h"
+#include <time.h>
 
 class Status
 {
 private:
 public:
     
-    //CONSTRUTOR
-    Status();
-    
+    int cadastrar(std::string id);
+    int gerar_status();
+
     //ATUALIZAR DADOS NO ARQUIVO ESPECÍFICO 
-    int atualizar();
+    static int atualizar();
 };
 #endif

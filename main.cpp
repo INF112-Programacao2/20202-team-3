@@ -6,6 +6,26 @@
 #include "Status.h"
 #include "Leito.h"
 #include "Paciente.h"
+#include <chrono>
+#include <thread>
+
+
+void segundos(int tempo)
+{
+        std::chrono::time_point<std::chrono::system_clock> start, end;
+        start = std::chrono::system_clock::now();
+        end = std::chrono::system_clock::now();
+    while(true){
+        std::cout << "Tá rodani" << std::endl;
+        std::chrono::duration<double> elapsed_seconds = end - start;
+        std::time_t end_time = std::chrono::system_clock::to_time_t(end);
+        if(elapsed_seconds.count()>=tempo){
+            start = std::chrono::system_clock::now();
+            end = std::chrono::system_clock::now();
+            Status::atualizar();
+        }
+    }
+}
 
 int main ()
 {
@@ -14,6 +34,8 @@ int main ()
     Paciente paciente;
     Medico   medico;
     Leito    leito;
+    std::thread _thread(segundos,3);
+    _thread.join();
 
     
     while (entrada[0]!=0)
