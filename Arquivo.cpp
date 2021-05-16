@@ -2,10 +2,20 @@
 #include "Arquivo.h"
 
 Arquivo::Arquivo(std::string dirArquivo) {
-    //abre o arquivo
-    this->filename = dirArquivo;
-    rapidcsv::Document doc(this->filename, rapidcsv::LabelParams(-1, -1));
-    this->arquivo =  doc;
+    try
+    {
+
+        //abre o arquivo
+        this->filename = dirArquivo;
+        rapidcsv::Document doc(this->filename, rapidcsv::LabelParams(-1, -1));
+        this->arquivo =  doc;
+    }
+    catch(const std::exception& e)
+    {
+        throw std::ifstream::failure("Erro ao abrir arquivo");
+    }
+    
+    
 }
 
 std::vector<std::vector<std::string>> Arquivo::getConteudo() {

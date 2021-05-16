@@ -9,20 +9,19 @@
 #include <thread>
 #include <chrono>
 
-
+int entrada[2] = {-1,-1};
 
 void segundos(int tempo)
 {
-    while(true) {
+    while(entrada[0] != 0) {
         std::this_thread::sleep_for(std::chrono::milliseconds(tempo*1000));
         Status::atualizar();
     }
 }
 
-
 int main ()
 {
-    int entrada[2] = {-1,-1};
+    
     int id = 0;
     Paciente paciente;
     Medico   medico;
@@ -65,7 +64,6 @@ int main ()
                     entrada[1] = -1;
                     break; 
                 case 2:
-                //TODO verificar id quanto a digito e se esta no vetor de id
                     std::cout << "Digite o id do paciente" << std::endl;
                     std::cin >> id;
                     paciente.alterar(id);
@@ -86,7 +84,7 @@ int main ()
                 case 5:
                     Paciente::listar();
                     entrada[1] = -1;
-                    break;
+                    break;    
                 default:
                     break;
                 }
@@ -128,7 +126,10 @@ int main ()
                 case 5:
                     Medico::listar();
                     entrada[1] = -1;
-                    break; 
+                    break;
+                case 0:
+                    return 0;
+                    break;     
                 default:
                     break;
                 }
@@ -171,7 +172,10 @@ int main ()
                 break;
             case 4:
                 //TODO: TEORICAMENTE AQUI VAI CHAMAR O METODO QUE ATUALIZA E INFORMA O STATUS DO CIDADAO 
-            break;      
+            break; 
+            case 0:
+                entrada[0] = 0;
+                break;     
             default:
                 break;          
             }
@@ -186,6 +190,9 @@ int main ()
 
         
     }
+
     contador.join();
+      
+
     return 0;
 }

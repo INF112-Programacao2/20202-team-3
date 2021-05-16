@@ -133,6 +133,8 @@ int Medico::alterar(int id) {
           else
             std::cout << "Nome inválido!" << std::endl;
         }
+
+        
         
         data[i][1] = novo;
         break;
@@ -255,6 +257,11 @@ int Medico::alterar(int id) {
 
     }
 
+    else
+    {
+      throw std::invalid_argument("ID não existe");
+    }
+
   }
   arquivo_medico.setConteudo(data);  
   return 0; 
@@ -288,6 +295,11 @@ int Medico::consultar(int id) {
       break;
     }
 
+    else
+    {
+      throw std::invalid_argument("ID não existe");
+    }
+
   }
 
   return 0;
@@ -311,6 +323,11 @@ int Medico::remover(int id) {
 
       std::cout << std::endl;
       break;
+    }
+
+    else
+    {
+      throw std::invalid_argument("ID não existe");
     }
 
   }

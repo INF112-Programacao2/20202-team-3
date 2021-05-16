@@ -7,7 +7,9 @@
 #include "Status.h"
 
 Arquivo arquivo_paciente("arquivo/paciente.csv");
+
 Status status;
+
 static std::vector<std::string> split(const std::string& str, char delim){
    auto i = 0;
    std::vector<std::string> list; 
@@ -339,11 +341,15 @@ int Paciente::alterar(int id)
       }
       data[i][7] = novo;
       break;
-      //TODO: implementar o status paciente case 8
       default:
         break;
       }
 
+    }
+
+    else
+    {
+      throw std::invalid_argument("ID não existe");
     }
 
   }
@@ -380,13 +386,17 @@ int Paciente::consultar(int id)
       break;
     }
 
-    //TODO: VERIFICAÇÃO DE ID
+    else
+    {
+      throw std::invalid_argument("ID não existe");
+    }
+
+    
   }
 
   return 0;
 }
 
-//LISTAR UM ÚNICO CADASTRO
 int Paciente::remover(int id)
 {
   //JOGAR ARQUIVO NA MATRIZ
@@ -403,6 +413,11 @@ int Paciente::remover(int id)
 
       std::cout << std::endl;
       break;
+    }
+
+    else
+    {
+      throw std::invalid_argument("ID não existe");
     }
 
   }
