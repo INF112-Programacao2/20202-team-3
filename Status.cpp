@@ -1,10 +1,22 @@
 #include "Status.h"
-#include "Arquivo.h"
-#include <cstdlib>
+#include <chrono>
+#include <random>
 
 
 Arquivo arquivo_status("arquivo/status.csv");
 Arquivo arquivo_dados("arquivo/dados.csv");
+
+/*
+    a funcao atualiza de acordo com o CLOOOOOOOOOOOCK
+*/ 
+static unsigned int randomgen()
+{
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(0,100);
+    int rndnum = dis(gen);
+    return (unsigned int) rndnum;
+}
 
 int Status::cadastrar(std::string id)
 {
@@ -21,15 +33,18 @@ int Status::atualizar()
     std::vector<std::vector<std::string>> data_status = arquivo_status.getConteudo();
     std::vector<std::vector<std::string>> data_dados = arquivo_dados.getConteudo();
     
-    for(int i=1, rand_status; i<data_status.size(); i++)    
+    for(int i=1; i<data_status.size(); i++)    
     {   
-
-        std::srand(time(NULL));
-        rand_status = std::rand() % data_dados.size();
-        for(int j=0; data_status[i].size(); j++)
+        std::srand(randomgen());
+        int rand_status = std::rand() % data_dados.size()+1;
+        for(int j=1; j < data_status[i].size(); j++)
         {
-            data_status[i][j] = data_dados[rand_status][j];
+            rand_status = std::rand() % data_dados.size()+1;
+
+            data_status[i][j] = data_dados[rand_status-1][j-1];
+
         }
     }
+    arquivo_status.setConteudo(data_status);
     return 0;
 }

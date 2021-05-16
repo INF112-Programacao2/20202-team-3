@@ -3,6 +3,8 @@
 #include <iostream>
 #include "Arquivo.h"
 #include <time.h>
+#include <chrono>
+#include <cstdlib>
 
 class Status
 {
