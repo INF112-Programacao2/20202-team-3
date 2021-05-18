@@ -5,6 +5,8 @@
 #include <time.h>
 #include <chrono>
 #include <cstdlib>
+#include<ctype.h>
+#include <vector>
 
 class Status
 {
@@ -12,7 +14,7 @@ private:
 public:
     
     int cadastrar(std::string id);
-    int gerar_status();
+    static int gerar_status();
 
     //ATUALIZAR DADOS NO ARQUIVO ESPECÍFICO 
     static int atualizar();

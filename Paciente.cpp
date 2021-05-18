@@ -81,8 +81,8 @@ int Paciente::cadastrar()
 
   //VERIFICA A QUANTIDADE DE DIGITOS E SE HÁ APENAS NUMEROS
     int aux=0;
-    for(int i=0;cpf[i]!='\0';i++){
-      if(cpf[i]<='0' || cpf[i]>='9'){
+    for(int i=0;i<cpf.size();i++){
+      if(cpf[i]<'0' || cpf[i]>'9'){
         aux=0;
         break;
       }
@@ -227,7 +227,7 @@ int Paciente::alterar(int id)
           //VERIFICA A QUANTIDADE DE DIGITOS E SE HÁ APENAS NUMEROS
           int aux=0;
           for(int i=0;novo[i]!='\0';i++){
-            if(novo[i]<='0' || novo[i]>='9'){
+            if(novo[i]<'0' || novo[i]>'9'){
               aux=0;
               break;
             }

@@ -16,6 +16,7 @@ void segundos(int tempo)
     while(entrada[0] != 0) {
         std::this_thread::sleep_for(std::chrono::milliseconds(tempo*1000));
         Status::atualizar();
+        Status::gerar_status();
     }
 }
 
@@ -28,7 +29,7 @@ int main ()
     Leito    leito;
     
 
-    std::thread contador(segundos, 3);
+    std::thread contador(segundos, 15);
 
 
     

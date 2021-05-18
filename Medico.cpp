@@ -147,7 +147,7 @@ int Medico::alterar(int id) {
           //VERIFICA A QUANTIDADE DE DIGITOS E SE HÁ APENAS NUMEROS
           int aux=0;
           for(int i=0;novo[i]!='\0';i++){
-            if(novo[i]<='0' || novo[i]>='9'){
+            if(novo[i]<'0' || novo[i]>'9'){
               aux=0;
               break;
             }
