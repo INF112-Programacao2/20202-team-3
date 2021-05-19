@@ -8,7 +8,7 @@
 
 Arquivo arquivo_status("arquivo/status.csv");
 Arquivo arquivo_dados("arquivo/dados.csv");
-Arquivo arquivo_paciente("arquivo/paciente.csv");
+Arquivo arquivo_paciente_status("arquivo/dados.csv");
 
 
 /*

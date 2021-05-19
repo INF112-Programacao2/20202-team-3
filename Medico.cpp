@@ -91,6 +91,7 @@ int Medico::alterar(int id) {
 
   int campo = -1;
   std::string novo;
+  bool verificar = false;
 
   std::cout << "Digite o digito do campo que você deseja alterar:" << std::endl;
   std::cout << "1 - Nome" << std::endl;
@@ -108,9 +109,10 @@ int Medico::alterar(int id) {
   {
     //FAZ A VERIFICAÇÃO DE ID
     int id_linha = stoi(data[i][0]);
-    bool id_existe=true;
+
     if (id_linha == id)
     {
+      verificar = true;
       switch (campo)
       {
       case 1:
@@ -256,13 +258,13 @@ int Medico::alterar(int id) {
       }
 
     }
-
-    else
-    {
-      throw std::invalid_argument("ID não existe");
-    }
-
   }
+
+  if (verificar == false)
+  {
+    std::cout << "ID não existe" << std::endl;
+  }
+  
   arquivo_medico.setConteudo(data);  
   return 0; 
 }
