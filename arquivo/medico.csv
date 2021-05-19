@@ -1,6 +1,7 @@
 id,name,cpf,data,sexo,crm,especialidade,disponibilidade
 1,ana,11122233311,20/01/2001,M,13213,Pulmao,S
-3,"Zezim Boladao",123321456987,20/01/2001,M,1233213211,Podologo,S
 4,Bernardo,09797163652,13/03/2000,M,00000033300,Gastro,N
 5,Jaspion,010123012031,01/01/0001,F,000000001,Geriatra,N
 6,Jorjao,12343454567,13/13/1105,F,1231243524,Proctologista,S
+7,"Doutor Gugu",01223256987,01/01/1956,M,354843535435,Pneumologista,S
+8,"Luis In cio",13131313131,13/01/1313,M,131313131313,"Salvado da P tria",S

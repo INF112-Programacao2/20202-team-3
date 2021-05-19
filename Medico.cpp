@@ -271,6 +271,7 @@ int Medico::consultar(int id) {
    //JOGAR ARQUIVO NA MATRIZ
   std::vector<std::vector<std::string>> data = arquivo_medico.getConteudo();
 
+  bool verificar = false;
   for (int i = 1; i < data.size(); i++)
   {
     //FAZ A VERIFICAÇÃO DE ID
@@ -278,6 +279,7 @@ int Medico::consultar(int id) {
 
     if (id_linha == id)
     {
+      verificar = true;
       //IMPRIMIR TODAS AS COLUNAS
       for (int k = 0; k < data[0].size(); k++)
       {
@@ -295,13 +297,13 @@ int Medico::consultar(int id) {
       break;
     }
 
-    else
-    {
-      throw std::invalid_argument("ID não existe");
-    }
-
   }
 
+  if (verificar == false)
+  {
+    std::cout << "ID não existe" << std::endl;
+  }
+  
   return 0;
 
   
@@ -311,6 +313,7 @@ int Medico::remover(int id) {
   //JOGAR ARQUIVO NA MATRIZ
   std::vector<std::vector<std::string>> data = arquivo_medico.getConteudo();
 
+  bool verificar = false;
   for (int i = 1; i < data.size(); i++)
   {
     //FAZ A VERIFICAÇÃO DE ID
@@ -318,30 +321,22 @@ int Medico::remover(int id) {
 
     if (id_linha == id)
     {
-
+      verificar = true;  
       data.erase(data.begin() + i, data.begin() + i + 1);
 
       std::cout << std::endl;
       break;
     }
 
-    else
-    {
-      throw std::invalid_argument("ID não existe");
-    }
 
   }
 
-  arquivo_medico.setConteudo(data);
-
-  for (std::vector<std::string> line : data)
+  if (verificar == false)
   {
-    for (std::string colum : line)
-    {
-      std::cout << colum << " ";
-    }
-    std::cout << std::endl;
+    std::cout << "ID não existe" << std::endl;
   }
+  
+  arquivo_medico.setConteudo(data);
 
   return 0;
   

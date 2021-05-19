@@ -29,7 +29,7 @@ int main ()
     Leito    leito;
     
 
-    std::thread contador(segundos, 15);
+    std::thread contador(segundos, 40);
 
 
     
@@ -41,7 +41,6 @@ int main ()
             std::cout << "1 - CENTRAL DE PACIENTES" << std::endl;
             std::cout << "2 - CENTRAL DE MEDICOS" << std::endl;
             std::cout << "3 - CENTRAL DE LEITOS" << std::endl;
-            std::cout << "4 - VERIFICAR STATUS" << std::endl;
             std::cout << "0 - SAIR" << std::endl;
 
             std::cin >> entrada[0];
@@ -171,11 +170,9 @@ int main ()
                     break;
                 }
                 break;
-            case 4:
-                //TODO: TEORICAMENTE AQUI VAI CHAMAR O METODO QUE ATUALIZA E INFORMA O STATUS DO CIDADAO 
-            break; 
             case 0:
                 entrada[0] = 0;
+                
                 break;     
             default:
                 break;          

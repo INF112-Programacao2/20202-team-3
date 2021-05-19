@@ -10,7 +10,6 @@ class Paciente : public Pessoa
     private:
 
     public:
-        //Status status();
         //-1 em leito = vazio;
         //CONSTRUTOR
         Paciente();
