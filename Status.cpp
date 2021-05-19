@@ -3,10 +3,13 @@
 #include <random>
 #include <string>
 #include <vector>
+#include "Arquivo.h"
 
 
 Arquivo arquivo_status("arquivo/status.csv");
 Arquivo arquivo_dados("arquivo/dados.csv");
+Arquivo arquivo_paciente("arquivo/paciente.csv");
+
 
 /*
     a funcao atualiza de acordo com o CLOOOOOOOOOOOCK
@@ -18,6 +21,30 @@ static unsigned int randomgen()
     std::uniform_int_distribution<> dis(0,100);
     int rndnum = dis(gen);
     return (unsigned int) rndnum;
+}
+
+static std::vector<std::string> split(const std::string& str, char delim){
+   auto i = 0;
+   std::vector<std::string> list; 
+   auto pos = str.find(delim);
+   while (pos != std::string::npos){
+      list.push_back(str.substr(i, pos - i));
+      i = ++pos;
+      pos = str.find(delim, pos);
+   }
+   list.push_back(str.substr(i, str.length()));
+   return list;
+}
+
+bool isInList(std::vector<std::string> list, std::string id_paciente) {
+    bool exist = false;
+    for(std::string id : list) {
+        if(id == id_paciente) {
+            exist = true;
+        }
+    }
+
+    return exist;
 }
 
 int Status::cadastrar(std::string id)
@@ -60,26 +87,40 @@ int Status::gerar_status(){
     
     std::vector<std::vector<std::string>> data_status = arquivo_status.getConteudo();
     std::vector<std::string> data_status_problemas;
+    data_status_problemas.push_back("-1");
     for(int i=1; i<data_status.size(); i++){
-        if(std::stoi(data_status[i][1])<89){
-            data_status_problemas.push_back(data_status[i][0]);
+        if(!isInList(data_status_problemas, data_status[i][0])) {
+            if(std::stoi(data_status[i][1])<89)
+                data_status_problemas.push_back(data_status[i][0]);
         }
-        if(data_status_problemas[i-1]!=data_status[i][0]) {
+
+        if(!isInList(data_status_problemas, data_status[i][0])) {
             if(std::stoi(data_status[i][2])<50 || std::stoi(data_status[i][2])>90)
                 data_status_problemas.push_back(data_status[i][0]);
         }
-        if(data_status_problemas[i-1]!=data_status[i][0]) {
+
+        if(!isInList(data_status_problemas, data_status[i][0])) {
             if(std::stoi(data_status[i][3])<15 || std::stoi(data_status[i][3])>22)
                 data_status_problemas.push_back(data_status[i][0]);
         }
-        /*if(data_status_problemas[i-1]!=data_status[i][0]) {
-            if(std::stoi(data_status[i][2])<50)          //TODO: checar pressão
+
+        if(!isInList(data_status_problemas, data_status[i][0])) {
+            std::vector<std::string> pressao = split(data_status[i][4], '/');
+
+            std::cout << pressao[0] << " " << pressao[1] << std::endl;
+
+
+            if((std::stoi(pressao[0]) < 9 && std::stoi(pressao[1]) < 6) 
+            || (std::stoi(pressao[0]) > 18 && std::stoi(pressao[1]) > 11)) {
                 data_status_problemas.push_back(data_status[i][0]);
-        }*/ 
+            }  
+        }
     }
-    data_status.clear();
-    data_status_problemas.clear();
-   return 0;
-
-
+    
+    for (std::string id : data_status_problemas)
+        if(id != "-1") {
+            std::cout << id << std::endl;
+        }
+    return 0;
 }
+
