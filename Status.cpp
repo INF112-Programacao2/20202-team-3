@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include "Arquivo.h"
+#include "colormod.h" // namespace Color
+
 
 
 
@@ -158,8 +160,12 @@ int Status::gerar_status(){
             }  
         }
     }
-    std::cout <<  "===== ALERTA  =====" << std::endl;
-    std::cout << "ID: " << " NOME PACIENTE: " << "LEITO:" << std::endl;
+    if(data_status.size() >= 2) {
+        Color::Modifier red(Color::FG_RED);
+        Color::Modifier def(Color::FG_DEFAULT);
+        std::cout << red <<  "===== ALERTA  =====" << def << std::endl;
+        std::cout << "ID: " << " NOME PACIENTE: " << "LEITO:" << std::endl;
+    }
     for (std::string id : data_status_problemas) {
         std::vector<std::string> pacienteinfo = getInfoPacienteById(id);
 

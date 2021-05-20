@@ -44,31 +44,123 @@ int Medico::cadastrar()
 
   int id = stoi(data[data.size()-1][0]);
   
-  std::cout << "Digite o nome do médico: " << std::endl ;
-  while(std::getline(std::cin, nome)){
-    if(nome != "")
+
+  while(true){
+    std::cout << "Digite o nome do medico: " << std::endl;
+    while (std::getline(std::cin, nome))
+    {
+      if (nome != "")
+      break;
+    }
+
+    bool verifica = false;
+    std::regex re(R"(^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*$)");
+    if (std::regex_match(nome, re)) {
+      verifica = true;
+    } else {
+      verifica = false;
+    }
+    if(verifica == true)
+      break;
+    else
+      std::cout << "Nome inválido!" << std::endl;
+  }
+
+  while(true){
+    std::cout << "Digite o CPF do medico (Somente números): " << std::endl ;
+    std::cin >> cpf;
+
+  //VERIFICA A QUANTIDADE DE DIGITOS E SE HÁ APENAS NUMEROS
+    int aux=0;
+    for(int i=0;i<cpf.size();i++){
+      if(cpf[i]<'0' || cpf[i]>'9'){
+        aux=0;
+        break;
+      }
+      aux++;
+    }
+    if(aux==11)
+      break;
+    else
+      std::cout<< "CPF inválido!" << std::endl;
+  }
+  
+ while(true){
+    bool validacao =true;
+    std::cout << "Digite a nova data (mm/dd/aaaa): " << std::endl;
+    std::cin >> data_nascimento;
+
+    //Verifica por Regex se a data está no formato: dd/mm/yyyy
+    std::regex re(R"(^(0?[1-9]|[21][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$)");
+    while(!std::regex_match(data_nascimento, re)) {
+      std::cout << "Data inválida, digite a nova Data: " << std::endl;
+      std::cin >> data_nascimento;
+    }
+
+
+
+    //Verifica se a data está valida
+    std::string dia = split(data_nascimento, '/')[0];
+    std::string mes = split(data_nascimento, '/')[1];
+    std::string ano = split(data_nascimento, '/')[2]; 
+    if(stoi(mes)==1 || stoi(mes)==3 || stoi(mes)==5 || stoi(mes)==7
+    ||stoi(mes)==8 || stoi(mes)==10 ||stoi(mes)==12 ){
+      if(stoi(dia)>31 || stoi(dia)<1)
+        validacao =false;
+    }
+    else if(stoi(mes)==4 || stoi(mes)==6 || stoi(mes)==9 || stoi(mes)==11){
+      if(stoi(dia)>30 || stoi(dia)<1)
+        validacao =false;
+    }
+    else if(stoi(mes)==2){
+      if(stoi(dia)>28 || stoi(dia)<1)
+        validacao =false;
+    }
+    else
+      validacao =false;
+    if(stoi(ano)<1)
+      validacao=false;
+    if(validacao == true)
+      break;
+    else 
+      std::cout << "Data inválida" << std::endl;
+  }
+  while(true){
+    std::cout << "Digite o sexo (M/F): " << std::endl ;
+    std::cin >> sexo;
+
+    //VERIFICA SE DIGITOU M OU F
+    if((sexo[0]== 'M'  || sexo[0] == 'F' || sexo[0]=='m' || sexo[0]=='f') && sexo[1]=='\0'){
+      if(sexo[0]=='m' || sexo[0]=='f')
+        sexo[0]=toupper(sexo[0]);
+      break;
+    }
+    else
+      std::cout << "Sexo inválido" << std::endl;
+  }
+
+  std::cout << "Digite a especialidade do medico: " << std::endl;
+
+  while (std::getline(std::cin, esp))
+  {
+    if (esp != "")
       break;
   }
 
-  std::cout << "Digite o CPF do médico: " << std::endl ;
-  std::cin >> cpf;
+ while(true){
+    std::cout << "Digite a disponibilidade do medico (S/N): " << std::endl ;
+    std::cin >> disp;
 
-  std::cout << "Digite a data de nascimento do médico (dd/mm/aaaa): "  << std::endl ;
-  std::cin >> data_nascimento;
-
-  std::cout << "Digite o sexo(M/F): " << std::endl ;
-  std::cin >> sexo;
-
-  std::cout << "Digite o crm do médico: " << std::endl ;
-  std::cin >> crm;
-
-  std::cout << "Digite a especialidade do médico: " << std::endl ;
-  while(std::getline(std::cin, esp)){
-    if(esp != "")
+    //VERIFICA SE DIGITOU M OU F
+    if((disp[0]== 'S'  || disp[0] == 'N' || disp[0]=='s' || disp[0]=='n') && disp[1]=='\0'){
+      if(disp[0]=='s' || disp[0]=='n')
+        disp[0]=toupper(disp[0]);
       break;
+    }
+    else
+      std::cout << "Sexo inválido" << std::endl;
   }
-  std::cout << "O médico está disponível(S/N): " << std::endl ;
-  std::cin >> disp;
+
 
   auxiliar.push_back(std::to_string(++id));
   auxiliar.push_back(nome);
