@@ -29,7 +29,7 @@ int main ()
     Leito    leito;
     
 
-    std::thread contador(segundos, 2);
+    std::thread contador(segundos, 60);
 
 
     
